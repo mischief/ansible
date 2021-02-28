@@ -1,0 +1,37 @@
+---
+packages:
+  - jq
+  - nmap
+  - dhcpcd
+  - avahi
+  - dbus
+
+sysctl:
+  - { name: "net.inet.ip.forwarding", value: 1 }
+  - { name: "net.inet6.ip6.forwarding", value: 1 }
+  - { name: "net.inet.ip.mforwarding", value: 1 }
+  - { name: "net.inet6.ip6.mforwarding", value: 1 }
+
+dns_servers:
+  - 8.8.8.8
+  - 8.8.4.4
+
+wan:
+  interface: rge0
+lan:
+  net: 192.168.0.0
+  address: 192.168.0.1
+  mask: 255.255.252.0
+  dhcp_start: 192.168.0.50
+  dhcp_end: 192.168.0.100
+  interface: vether0
+  bridge: bridge0 
+  interfaces:
+    - rge1
+
+# broken.
+#    - rge2
+#    - rge3
+#    - rge4
+#    - rge5
+

@@ -1,0 +1,30 @@
+- name: dhcpcd
+  service:
+    name: dhcpcd
+    state: started
+    enabled: true
+
+- name: dhcpd
+  service:
+    name: dhcpd
+    state: started
+    enabled: true
+
+- name: rad
+  service:
+    name: rad
+    state: started
+    enabled: true
+
+- name: unbound
+  service:
+    name: unbound
+    state: restarted
+    enabled: true
+
+- name: netstart
+  command: sh /etc/netstart
+
+- name: pf
+  command: pfctl -f /etc/pf.conf
+

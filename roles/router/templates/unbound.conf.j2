@@ -1,0 +1,14 @@
+server:
+	interface: {{ lan.address }}
+	interface: 127.0.0.1
+	access-control: {{ [lan.net,lan.mask] | join('/') | ipaddr('net') }} allow
+	do-not-query-localhost: no
+	hide-identity: yes
+	hide-version: yes
+
+forward-zone:
+        name: "."
+{% for addr in dns_servers %}
+        forward-addr: {{ addr }}
+{% endfor %}
+

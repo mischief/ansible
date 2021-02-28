@@ -1,0 +1,23 @@
+#
+# {{ ansible_managed }}
+# 
+
+ipv6only
+duid
+persistent
+vendorclassid
+option rapid_commit
+option interface_mtu
+
+# make dhcpcd not touch nameservers.
+nohook resolv.conf
+
+require dhcp_server_identifier
+slaac private
+allowinterfaces {{ wan.interface }}
+interface rge0
+        ipv6rs
+        iaid 1
+        ia_na 1
+        ia_pd 1/::/64 {{ lan.interface }}/0/64
+

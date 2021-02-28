@@ -1,0 +1,11 @@
+#
+# {{ ansible_managed }}
+#
+
+add {{ lan.interface }}
+
+{% for intf in lan.interfaces %}
+add {{ intf }}
+{% endfor %}
+up
+

@@ -1,0 +1,11 @@
+#
+# {{ ansible_managed }}
+# 
+option domain-name "home.arpa";
+option domain-name-servers {{ lan.address }};
+
+subnet {{ lan.net }} netmask {{ lan.mask }} {
+	option routers {{ lan.address }};
+	range {{ lan.dhcp_start }} {{ lan.dhcp_end }};
+}
+
