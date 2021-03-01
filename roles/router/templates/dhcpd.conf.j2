@@ -7,5 +7,15 @@ option domain-name-servers {{ lan.address }};
 subnet {{ lan.net }} netmask {{ lan.mask }} {
 	option routers {{ lan.address }};
 	range {{ lan.dhcp_start }} {{ lan.dhcp_end }};
+
+{% for ip, v in lan.hosts.items() %}
+{% if v.mac is defined %}
+	host {{ v.hostname }} {
+		hardware ethernet {{ v.mac }};
+		fixed-address {{ ip }};
+	}
+
+{% endif %}
+{% endfor %}
 }
 

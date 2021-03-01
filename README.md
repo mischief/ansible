@@ -13,3 +13,9 @@
 	ansible-playbook --syntax-check router.yaml && \
 		ansible-playbook --become router.yaml
 
+## tip: test a template locally
+
+	ansible all -i localhost, -c local -m template \
+		-a "src=roles/router/templates/pf.conf.j2 dest=./test.txt" \
+		--extra-vars=@group_vars/router.yaml
+

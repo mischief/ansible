@@ -25,9 +25,37 @@ lan:
   dhcp_start: 192.168.0.50
   dhcp_end: 192.168.0.100
   interface: vether0
-  bridge: bridge0 
+  bridge: bridge0
   interfaces:
     - rge1
+  hosts:
+    # server
+    192.168.0.10:
+      hostname: sokoban
+      mac: 2c:fd:a1:ba:38:aa
+    # desktop
+    192.168.0.11:
+      hostname: abacus
+      mac: 3c:7c:3f:2f:71:3a
+    # work laptop
+    192.168.0.15:
+      hostname: work
+      mac: d8:f2:ca:b4:00:14
+    # personal laptop
+    192.168.0.18:
+      hostname: wololo
+      mac: 2e:6d:f3:32:a6:32
+
+# ports example:
+#   192.168.99.99:
+#     hostname: blah
+#     mac: fe:fi:fo:fu:fa:fo
+#     ports:
+#       tcp:
+#         - 80
+#         - 443
+#       udp:
+#         - 53
 
 # broken.
 #    - rge2

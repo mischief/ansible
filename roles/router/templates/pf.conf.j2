@@ -23,11 +23,31 @@ block all
 
 pass from <firewall>
 
-pass out quick
+pass out
 
 pass in on $int_if
 
 # ipv6 junk
 pass in log on egress inet6 proto icmp6 all icmp6-type { routeradv neighbrsol neighbradv }
 pass in log on egress inet6 proto udp from fe80::/10 port dhcpv6-server to fe80::/10 port dhcpv6-client no state
+
+{% for ip, v in lan.hosts.items() %}
+{% if v.ports is defined %}
+# Rules for {{ v.hostname }}
+{% if v.ports.tcp is defined %}
+{% for p in v.ports.tcp %}
+pass in on egress proto tcp from any to egress port {{ p }} rdr-to {{ ip }} port {{ p }}
+pass in on $int_if proto tcp from $int_if:network to egress port {{ p }} rdr-to {{ ip }}
+pass out on $int_if proto tcp to {{ ip }} port {{ p }} received-on $int_if nat-to $int_if
+{% endfor %}
+{% endif %}
+{% if v.ports.udp is defined %}
+{% for p in v.ports.udp %}
+pass in on egress proto udp from any to egress port {{ p }} rdr-to {{ ip }} port {{ p }}
+pass in on $int_if proto udp from $int_if:network to egress port {{ p }} rdr-to {{ ip }}
+pass out on $int_if proto udp to {{ ip }} port {{ p }} received-on $int_if nat-to $int_if
+{% endfor %}
+{% endif %}
+{% endif %}
+{% endfor %}
 
