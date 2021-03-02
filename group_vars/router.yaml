@@ -16,6 +16,9 @@ dns_servers:
   - 8.8.8.8
   - 8.8.4.4
 
+# desired uplink bandwidth for FQ-CoDel in pf
+uplink_bandwidth: 30M
+
 wan:
   interface: rge0
 lan:
