@@ -9,7 +9,7 @@ subnet {{ lan.net }} netmask {{ lan.mask }} {
 	range {{ lan.dhcp_start }} {{ lan.dhcp_end }};
 
 {% for ip, v in lan.hosts.items() %}
-{% if v.mac is defined %}
+{% if v.hostname is defined and v.mac is defined %}
 	host {{ v.hostname }} {
 		hardware ethernet {{ v.mac }};
 		fixed-address {{ ip }};

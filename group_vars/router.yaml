@@ -31,6 +31,11 @@ lan:
   bridge: bridge0
   interfaces:
     - rge1
+    - rge2
+    - rge3
+    - rge4
+    - rge5
+
   hosts:
     # server
     192.168.0.10:
@@ -44,10 +49,32 @@ lan:
     192.168.0.15:
       hostname: work
       mac: d8:f2:ca:b4:00:14
+
     # personal laptop
-    192.168.0.18:
+    192.168.0.32:
       hostname: wololo
       mac: 2e:6d:f3:32:a6:32
+
+    # old laptop
+    192.168.0.30:
+      hostname: omicron
+      mac: 3c:97:0e:26:6b:74
+
+    # eero
+    192.168.0.40:
+      hostname: eero1
+      mac: 6c:ae:f6:a0:6e:12
+    192.168.0.41:
+      hostname: eero2
+      mac: 3c:5c:f1:02:2d:ad
+
+    # kubernetes ingress
+    192.168.3.10:
+      hostname: kube-ingress
+      ports:
+        tcp:
+          - 80
+          - 443
 
 # ports example:
 #   192.168.99.99:
@@ -59,10 +86,4 @@ lan:
 #         - 443
 #       udp:
 #         - 53
-
-# broken.
-#    - rge2
-#    - rge3
-#    - rge4
-#    - rge5
 
