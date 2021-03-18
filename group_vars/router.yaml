@@ -5,6 +5,7 @@ packages:
   - dhcpcd
   - avahi
   - dbus
+  - node_exporter
 
 sysctl:
   - { name: "net.inet.ip.forwarding", value: 1 }
