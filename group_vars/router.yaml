@@ -27,8 +27,8 @@ lan:
   mask: 255.255.252.0
   dhcp_start: 192.168.0.50
   dhcp_end: 192.168.0.100
-  interface: vether0
-  bridge: bridge0
+  interface: vport0
+  bridge: veb0
   interfaces:
     - rge1
     - rge2

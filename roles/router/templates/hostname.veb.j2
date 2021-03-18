@@ -6,7 +6,6 @@ add {{ lan.interface }}
 
 {% for intf in lan.interfaces %}
 add {{ intf }}
--stp {{ intf }}
 {% endfor %}
 up
 

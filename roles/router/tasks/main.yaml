@@ -24,7 +24,7 @@
 
 - name: setup lan interface
   template:
-    src: hostname.vether.j2
+    src: hostname.vport.j2
     dest: /etc/hostname.{{ lan.interface }}
     mode: 0640
     owner: root
@@ -43,7 +43,7 @@
 
 - name: setup bridge
   template:
-    src: hostname.bridge.j2
+    src: hostname.veb.j2
     dest: /etc/hostname.{{ lan.bridge }}
     mode: 0640
     owner: root
