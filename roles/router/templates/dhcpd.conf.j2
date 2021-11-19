@@ -3,6 +3,7 @@
 # 
 option domain-name "home.arpa";
 option domain-name-servers {{ lan.address }};
+option ntp-servers {{ lan.address }};
 
 subnet {{ lan.net }} netmask {{ lan.mask }} {
 	option routers {{ lan.address }};

@@ -7,7 +7,7 @@
 - name: dhcpd
   service:
     name: dhcpd
-    state: started
+    state: restarted
     enabled: true
 
 - name: rad
@@ -19,6 +19,12 @@
 - name: unbound
   service:
     name: unbound
+    state: restarted
+    enabled: true
+
+- name: ntpd
+  service:
+    name: ntpd
     state: restarted
     enabled: true
 
