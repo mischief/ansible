@@ -56,6 +56,11 @@ lan:
       hostname: wololo
       mac: 2e:6d:f3:32:a6:32
 
+    # t431s
+    192.168.0.31:
+      hostname: tetris
+      mac: 3c:97:0e:ad:47:12
+
     # old laptop
     192.168.0.30:
       hostname: omicron
