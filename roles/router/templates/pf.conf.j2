@@ -24,6 +24,9 @@ pass out
 
 pass in on $int_if
 
+# SSH
+pass in on egress proto tcp from any to any port 2222 rdr-to 127.0.0.1 port 22
+
 # ipv6 junk
 pass in log on egress inet6 proto icmp6 all icmp6-type { routeradv neighbrsol neighbradv }
 pass in log on egress inet6 proto udp from fe80::/10 port dhcpv6-server to fe80::/10 port dhcpv6-client no state
