@@ -11,7 +11,7 @@
 ## execute
 
 	ansible-playbook --syntax-check router.yaml && \
-		ansible-playbook --become router.yaml
+		ansible-playbook --ask-vault-password -e @secrets.yaml --become router.yaml
 
 ## tip: test a template locally
 

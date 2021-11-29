@@ -34,3 +34,9 @@
 - name: pf
   command: pfctl -f /etc/pf.conf
 
+- name: smtpd
+  service:
+    name: smtpd
+    state: restarted
+    enabled: true
+

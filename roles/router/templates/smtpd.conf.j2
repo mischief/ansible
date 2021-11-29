@@ -1,0 +1,12 @@
+table aliases file:/etc/mail/aliases
+table secrets file:/etc/mail/secrets
+
+listen on lo0
+listen on {{ lan.interface }}
+
+action "local" mbox alias <aliases>
+action "relay" relay host smtp+tls://googlemail@smtp.googlemail.com:587 auth <secrets>
+
+match for local action "local"
+match from any for any action "relay"
+
