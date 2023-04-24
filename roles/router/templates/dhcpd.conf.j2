@@ -19,5 +19,18 @@ subnet {{ lan.net }} netmask {{ lan.mask }} {
 
 {% endif %}
 {% endfor %}
+
+# PXE magic
+
+        # iPXE client
+        user-class "iPXE" {
+                filename "menu.ipxe";
+        }
+
+        # UEFI PXE Boot
+        vendor-class "PXEClient:Arch:00007:UNDI:003001" {
+                filename "ipxe.efi";
+                option vendor-encapsulated-options 06:01:08:ff;
+        }
 }
 
