@@ -47,10 +47,25 @@ lan:
     192.168.0.11:
       hostname: abacus
       mac: 3c:7c:3f:2f:71:3a
+    # new desktop
+    192.168.0.12:
+      hostname: beast
+      mac: c8:7f:54:67:ef:e4
+
     # work laptop
     192.168.0.15:
       hostname: work
       mac: d8:f2:ca:b4:00:14
+
+    # new work laptop
+    192.168.0.16:
+      hostname: lenovo
+      mac: 04:7b:cb:bb:1c:b0
+
+    # work laptop ethernet
+    192.168.0.17:
+      hostname: lenovoeth
+      mac: e8:80:88:8b:fc:1d
 
     # personal laptop
     192.168.0.32:
