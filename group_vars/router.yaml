@@ -6,6 +6,7 @@ packages:
   - avahi
   - dbus
   - node_exporter
+  - tor
 
 sysctl:
   - { name: "net.inet.ip.forwarding", value: 1 }

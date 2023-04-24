@@ -137,3 +137,13 @@
     validate: smtpd -n -f %s
   notify: smtpd
 
+- name: tor
+  template:
+    src: torrc.j2
+    dest: /etc/tor/torrc
+    mode: 0640
+    owner: root
+    group: wheel
+    validate: tor --verify-config -f %s
+  notify: tor
+

@@ -40,3 +40,9 @@
     state: restarted
     enabled: true
 
+- name: tor
+  service:
+    name: tor
+    state: restarted
+    enabled: true
+

@@ -1,0 +1,11 @@
+##
+## {{ ansible_managed }}
+## 
+
+Log notice syslog
+RunAsDaemon 1
+DataDirectory /var/tor
+User _tor
+
+SOCKSPort {{ lan.address }}:9050
+
