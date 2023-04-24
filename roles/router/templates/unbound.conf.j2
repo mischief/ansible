@@ -1,7 +1,7 @@
 server:
 	interface: {{ lan.address }}
 	interface: 127.0.0.1
-	access-control: {{ [lan.net,lan.mask] | join('/') | ipaddr('net') }} allow
+	access-control: {{ [lan.net,lan.mask] | join('/') | ansible.utils.ipaddr('net') }} allow
 	do-not-query-localhost: no
 	hide-identity: yes
 	hide-version: yes
