@@ -27,8 +27,8 @@ lan:
   net: 192.168.0.0
   address: 192.168.0.1
   mask: 255.255.252.0
-  dhcp_start: 192.168.0.50
-  dhcp_end: 192.168.0.100
+  dhcp_start: 192.168.0.150
+  dhcp_end: 192.168.0.200
   interface: vport0
   bridge: veb0
   interfaces:
@@ -39,6 +39,7 @@ lan:
     - rge5
 
   hosts:
+    ### Wired block
     # server
     192.168.0.10:
       hostname: sokoban
@@ -51,6 +52,13 @@ lan:
     192.168.0.12:
       hostname: beast
       mac: c8:7f:54:67:ef:e4
+
+    192.168.0.13:
+      hostname: homeassistant
+      mac: fe:e1:bb:d1:a8:71
+      ports:
+        tcp:
+          - 8123
 
     # work laptop
     192.168.0.15:
@@ -67,20 +75,32 @@ lan:
       hostname: lenovoeth
       mac: e8:80:88:8b:fc:1d
 
-    # personal laptop
-    192.168.0.32:
+    # personal laptop, lenovo A485
+    192.168.0.18:
       hostname: wololo
-      mac: 2e:6d:f3:32:a6:32
+      mac: 8c:16:45:d8:8e:ef
+
+    ### Wireless block
+
+    # personal phone
+    192.168.0.20:
+      hostname: pixel6a
+      mac: c8:2a:dd:9a:f0:21
+
+    # old laptop
+    192.168.0.30:
+      hostname: omicron
+      mac: 3c:97:0e:26:6b:74
 
     # t431s
     192.168.0.31:
       hostname: tetris
       mac: 3c:97:0e:ad:47:12
 
-    # old laptop
-    192.168.0.30:
-      hostname: omicron
-      mac: 3c:97:0e:26:6b:74
+    # personal laptop wifi, lenovo A485
+    192.168.0.32:
+      hostname: wololo
+      mac: f8:ac:65:fb:39:fc
 
     # eero
     192.168.0.40:
@@ -89,6 +109,27 @@ lan:
     192.168.0.41:
       hostname: eero2
       mac: 3c:5c:f1:02:2d:ad
+
+    192.168.0.42:
+      hostname: eero-gw
+      mac: 64:97:14:01:43:f2
+
+    # smart garbage
+
+    # Alloy Smart Hub
+    192.168.0.50:
+      mac: e8:ca:c8:15:23:76
+      hostname: alloy
+
+    # ESP32 bluetooth proxy
+    192.168.0.51:
+      mac: 30:c6:f7:15:13:a4
+      hostname: bluetooth-proxy
+
+    # ESP32 server-reset switch
+    192.168.0.52:
+      mac: 30:c6:f7:14:f2:90
+      hostname: server-reset
 
     # kubernetes ingress
     192.168.3.10:
