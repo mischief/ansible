@@ -16,6 +16,13 @@
     - avahi_daemon
     - node_exporter
 
+- name: configure node_exporter
+  service:
+    name: node_exporter
+    arguments: "--collector.textfile.directory=/var/db/node_exporter"
+    state: started
+    enabled: true
+
 - name: Set sysctl options
   sysctl:
     name: "{{ item.name }}"
