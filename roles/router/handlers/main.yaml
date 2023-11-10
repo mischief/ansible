@@ -32,7 +32,7 @@
   command: sh /etc/netstart
 
 - name: pf
-  command: pfctl -f /etc/pf.conf
+  command: pfctl -Fr -f /etc/pf.conf
 
 - name: smtpd
   service:
