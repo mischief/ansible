@@ -15,8 +15,11 @@ sysctl:
   - { name: "net.inet6.ip6.mforwarding", value: 1 }
 
 dns_servers:
-  - 8.8.8.8
-  - 8.8.4.4
+  # the hostname after "#" is not a comment, it is used for TLS checks:
+  - "2606:4700:4700::1111@853#cloudflare-dns.com"
+  - "1.1.1.1@853#cloudflare-dns.com"
+  - "2606:4700:4700::1001@853#cloudflare-dns.com"
+  - "1.0.0.1@853#cloudflare-dns.com"
 
 # desired uplink bandwidth for FQ-CoDel in pf
 uplink_bandwidth: 30M

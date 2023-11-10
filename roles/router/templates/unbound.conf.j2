@@ -5,10 +5,16 @@ server:
 	do-not-query-localhost: no
 	hide-identity: yes
 	hide-version: yes
+	tls-cert-bundle: "/etc/ssl/cert.pem"
+
+remote-control:
+	control-enable: yes
 
 forward-zone:
-        name: "."
+	name: "."
+	forward-tls-upstream: yes               # use DNS-over-TLS forwarder
+	forward-first: no                       # do NOT send direct
 {% for addr in dns_servers %}
-        forward-addr: {{ addr }}
+	forward-addr: {{ addr }}
 {% endfor %}
 

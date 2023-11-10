@@ -24,6 +24,10 @@ pass out
 
 pass in on $int_if
 
+# capture dns/ntp
+pass in on $int_if proto { udp, tcp } from any to any port domain rdr-to ($int_if) port domain
+pass in on $int_if proto { udp, tcp } from any to any port ntp rdr-to ($int_if) port ntp
+
 # SSH
 pass in on egress proto tcp from any to any port 2222 rdr-to 127.0.0.1 port 22
 
